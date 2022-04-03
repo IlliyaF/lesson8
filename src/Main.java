@@ -31,7 +31,16 @@ public class Main {
 
         chstMap.put(arrChair, hsStores);
         System.out.println(chstMap.toString());
-
+        System.out.println("Method size: " + chstMap.size());
+        System.out.println("Method contains: " + chstMap.containsKey(arrChair));
+        System.out.println("Method get: " + chstMap.get(arrChair));
+        System.out.println("Method isEmpty: " + chstMap.isEmpty());
+        chstMap.clear();
+        System.out.println("Method is Empty after clear: " + chstMap.isEmpty());
+        chstMap.put(arrChair, hsStores);
+        System.out.println("Resurrection Map: " + chstMap.toString());
+        chstMap.remove(arrChair);
+        System.out.println("Removed element " + arrChair.toString());
 
 
 
