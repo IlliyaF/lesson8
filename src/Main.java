@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
@@ -28,7 +25,6 @@ public class Main {
 
         System.out.println("Array with chairs: " + arrChair.toString());
         System.out.println("Set of stores: " + hsStores.toString());
-
         chstMap.put(arrChair, hsStores);
         System.out.println(chstMap.toString());
         System.out.println("Method size: " + chstMap.size());
@@ -43,7 +39,9 @@ public class Main {
         System.out.println("Removed element " + arrChair.toString());
 
 
-
-
     }
+
+
+
 }
+
