@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         final List arrChair = new ArrayList();
         Set hsStores = new HashSet<>();
+        ChairMap chstMap = new ChairMap();
 
         Chair chair1 = new Chair(1, "kitchen", "white", "metal", true);
         Chair chair2 = new Chair(2, "office", "black", "plastic", true);
@@ -27,6 +28,11 @@ public class Main {
 
         System.out.println("Array with chairs: " + arrChair.toString());
         System.out.println("Set of stores: " + hsStores.toString());
+
+        chstMap.put(arrChair, hsStores);
+        System.out.println(chstMap.toString());
+
+
 
 
 

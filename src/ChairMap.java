@@ -12,13 +12,15 @@ public class ChairMap implements InterChairMap {
     }
 
     @Override
-    public boolean containsKey(String key) {
-        return false;
+    public boolean containsKey(Object key) {
+
+        return hsMap.containsKey(key);
     }
 
     @Override
-    public String get(String key) {
-        return null;
+    public Object get(Object key) {
+
+        return hsMap.get(key);
     }
 
     @Override
@@ -28,13 +30,15 @@ public class ChairMap implements InterChairMap {
     }
 
     @Override
-    public String remove(String key) {
-        return null;
+    public Object remove(Object key) {
+
+        return hsMap.remove(key);
     }
 
     @Override
-    public String put(String key, String value) {
-        return null;
+    public Object put(Object key, Object value) {
+
+        return hsMap.put(key, value);
     }
 
     @Override
@@ -42,6 +46,12 @@ public class ChairMap implements InterChairMap {
         return hsMap.size();
     }
 
+    @Override
+    public String toString() {
+        return "ChairMap{" +
+                "hsMap=" + hsMap +
+                '}';
+    }
     //@Override
     //public Entry[] toArray() {
      //   return new Entry[0];

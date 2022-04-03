@@ -9,15 +9,15 @@ public interface InterChairMap {
 
     void clear();
 
-    boolean containsKey(String key);
+    boolean containsKey(Object key);
 
-    String get(String key);
+    Object get(Object key);
 
     boolean isEmpty();
 
-    String remove(String key); // Returns the value to which this map previously associated the key, or null
+    Object remove(Object key); // Returns the value to which this map previously associated the key, or null
 
-    String put(String key, String value); // Returns the previous value associated with key, or null
+    Object put(Object key, Object value); // Returns the previous value associated with key, or null
 
     int size();
 
