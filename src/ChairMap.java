@@ -1,9 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 
 public class ChairMap implements InterChairMap {
 
-    Map hsMap = new HashMap();
+    Map <Person, List <? extends Pet>> hsMap = new HashMap<>();
 
 
     @Override
@@ -11,16 +11,15 @@ public class ChairMap implements InterChairMap {
         hsMap.clear();
     }
 
-    @Override
-    public boolean containsKey(Object key) {
+    public boolean containsKey(Person key) {
 
         return hsMap.containsKey(key);
     }
 
     @Override
-    public Object get(Object key) {
+    public List<? extends Pet> get(Person key) {
 
-        return hsMap.get(key);
+        List<? extends Pet> pets = hsMap.get(key); return pets;
     }
 
     @Override
@@ -29,17 +28,15 @@ public class ChairMap implements InterChairMap {
         return hsMap.isEmpty();
     }
 
-    @Override
-    public Object remove(Object key) {
-
+    public List<? extends Pet> remove(Person key) {
         return hsMap.remove(key);
     }
 
     @Override
-    public Object put(Object key, Object value) {
-
+    public List put(Person key, List value) {
         return hsMap.put(key, value);
     }
+
 
     @Override
     public int size() {
@@ -47,13 +44,24 @@ public class ChairMap implements InterChairMap {
     }
 
     @Override
+    public Set<Person> keySet() {
+        return hsMap.keySet();
+    }
+
+    @Override
+    public Object[] keysToArray() {
+
+        return hsMap.keySet().toArray();
+    }
+
+
+
+    @Override
     public String toString() {
         return "ChairMap{" +
                 "hsMap=" + hsMap +
                 '}';
     }
-    //@Override
-    //public Entry[] toArray() {
-    //   return new Entry[0];
-    //}
+
+
 }

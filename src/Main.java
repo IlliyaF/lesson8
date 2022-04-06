@@ -3,45 +3,71 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        final List arrChair = new ArrayList();
-        Set hsStores = new HashSet<>();
-        ChairMap chstMap = new ChairMap();
 
-        Chair chair1 = new Chair(1, "kitchen", "white", "metal", true);
-        Chair chair2 = new Chair(2, "office", "black", "plastic", true);
-        Chair chair3 = new Chair(3, "flat", "brown", "wood", false);
+        ChairMap persMap1 = new ChairMap();  //Announcement Our Map
 
-        Stores store1 = new Stores(1, 1, "02/02/2022", 25, 7);
-        Stores store2 = new Stores(2, 3, "11/26/2021", 56, 4);
-        Stores store3 = new Stores(3, 2, "03/11/2022", 73, 62);
+        //Multidimensional map: Our collection holds information about pet owners, each of whom may have several pets
+        persMap1.put(new Person("Vassa"), Arrays.asList(new Cat("Barsick"), new Cat("Pupsik")));
+        persMap1.put(new Person("Mary"), Arrays.asList(new Cat("Tady"), new Dog("Bob")));
+        persMap1.put(new Person("Ivan"), Arrays.asList(new Cat("Liam"), new Dog("Sas"), new Parrot("Arra")));
 
-        arrChair.add(chair1);
-        arrChair.add(chair2);
-        arrChair.add(chair3);
+        //Show us our Map
+        System.out.println("personMap: " + persMap1);
 
-        hsStores.add(store1);
-        hsStores.add(store2);
-        hsStores.add(store3);
+        //Method toString()
+        System.out.println("personMap.toString(): " + persMap1.toString());
 
-        System.out.println("Array with chairs: " + arrChair.toString());
-        System.out.println("Set of stores: " + hsStores.toString());
-        chstMap.put(arrChair, hsStores);
-        System.out.println(chstMap.toString());
-        System.out.println("Method size: " + chstMap.size());
-        System.out.println("Method contains: " + chstMap.containsKey(arrChair));
-        System.out.println("Method get: " + chstMap.get(arrChair));
-        System.out.println("Method isEmpty: " + chstMap.isEmpty());
-        chstMap.clear();
-        System.out.println("Method is Empty after clear: " + chstMap.isEmpty());
-        chstMap.put(arrChair, hsStores);
-        System.out.println("Resurrection Map: " + chstMap.toString());
-        chstMap.remove(arrChair);
-        System.out.println("Removed element " + arrChair.toString());
+        //Method keySet()
+        System.out.println("personMap.keySet(): " + persMap1.keySet());
 
+        for (Person p1 : persMap1.keySet()) {
+            System.out.println(p1.nam + " has");
+            for (Pet pet : persMap1.get(p1)) {
+                System.out.println("  " + pet + "  " + pet.namePet);
+            }
+        }
+
+        //Method size()
+        System.out.println("Method size: " + persMap1.size());
+
+        List arrPeople = new ArrayList();
+        for (Person p2 : persMap1.keySet()) {
+            arrPeople.add(p2); //Array keys of our Map. It's added for testing method remove()
+            System.out.println("Method contains: " + p2.nam + " " + persMap1.containsKey(p2));
+        }
+
+        Person p3 = (Person) arrPeople.get(0); //Generating key for method remove()
+
+        //Method remove
+        persMap1.remove(p3);
+        System.out.println("Removed element Mary - " + p3.nam);
+        System.out.println("Now our Map contains: ");
+
+        //Show current state of our Mep - without element Mary
+        for (Person p1 : persMap1.keySet()) {
+            System.out.println(p1.nam + " has");
+            for (Pet pet : persMap1.get(p1)) {
+                System.out.println("  " + pet + "  " + pet.namePet);
+            }
+        }
+
+        //Method isEmpty() - false
+        System.out.println("Is Map Empty?: " + persMap1.isEmpty());
+
+        //Method isEmpty()
+        System.out.println("This is our keys: " + persMap1.keysToArray());
+
+        //Method clear()
+        persMap1.clear();
+
+        //Method isEmpty() - true
+        System.out.println("Map is Empty after clear: " + persMap1.isEmpty());
 
     }
 
 
 
 }
+
+
 

@@ -1,26 +1,28 @@
-public interface InterChairMap {
 
-   /* interface Entry {
-        String getKey();
-        String getValue();
-        void setValue(String value);
-    }
-*/
+import java.util.List;
+import java.util.Set;
+
+public interface InterChairMap {
 
     void clear();
 
-    boolean containsKey(Object key);
+    boolean containsKey(Person key);
 
-    Object get(Object key);
+    List get(Person key);
 
     boolean isEmpty();
 
-    Object remove(Object key);
+    List remove(Person key);
 
-    Object put(Object key, Object value);
+    List put(Person key, List value);
 
     int size();
 
-   // Entry[] toArray();
+    Set<Person> keySet();
+
+    Object[] keysToArray();
+
+
+
 
 }
